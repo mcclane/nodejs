@@ -1,8 +1,8 @@
 var express = require('express');
 var fs = require('fs');
 var bodyParser = require('body-parser');
-var urlencodedParser = bodyParser.urlencoded({extended: false});
-var jsonParser = bodyParser.json();
+//var urlencodedParser = bodyParser.urlencoded({extended: false});
+//var jsonParser = bodyParser.json();
 
 var PORT = 80;
 
@@ -23,12 +23,6 @@ app.use(jsonParser);
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/html/index.html');
 });
-
-/* FAVICON ROUTING
-app.get('/favicon.ico', function(req, res) {
-    res.sendFile(__dirname + '/favicon.ico');
-});
-*/
 
 app.get('/css/style.css', function(req, res) {
     res.sendFile(__dirname + '/css/style.css');
