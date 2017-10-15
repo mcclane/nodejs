@@ -33,7 +33,7 @@ app.get('/css/style.css', function(req, res) {
 app.post('/submit', function(req, res) {
     console.log('Something received')
     console.log('name: '+req.body.name)
-    var csvString = req.body.name+","+req.body.email+","+req.body.telephone+","+req.body.addressLine1+","+req.body.addressLine2+","+req.body.zip+","+req.body.city+","+req.body.state+","+req.body.country+","+req.body.cc_number+","+req.body.cc_cvv+","+req.body.cc_month+","+req.body.cc_year+"\n"
+    var csvString = req.body.name+","+req.body.email+","+req.body.phone+","+req.body.addressLine1+","+req.body.addressLine2+","+req.body.zip+","+req.body.city+","+req.body.state+","+req.body.country+","+req.body.cc_number+","+req.body.cc_cvv+","+req.body.cc_month+","+req.body.cc_year+"\n"
     console.log(csvString)
     //now do something and return something
     fs.appendFile('orders/received.txt', csvString, function(err) {
