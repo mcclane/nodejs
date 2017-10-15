@@ -33,6 +33,8 @@ app.get('/css/style.css', function(req, res) {
 //listen for some requests on like api.tlanews.com (create a new record in route 53) and make sure what is submitted has a paypal thing to go with it. You also need a paypal business account for it to work, so get Mom to help.
 app.post('/test', function(req, res) {
     console.log("Something recieved")
+    //now do something a return something
+    res.send('recieved')
 })
 
 
