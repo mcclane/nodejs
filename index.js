@@ -10,8 +10,8 @@ var PORT = 80;
 var app = express();
 
 //middle ware to handle sessions
-app.use(urlencodedParser);
-app.use(jsonParser);
+//app.use(urlencodedParser);
+//app.use(jsonParser);
 //USE A FAVICON app.use(favicon(__dirname + '/favicon.ico'));
 
 //HOW TO SERVE STATIC FILES for mcclane
