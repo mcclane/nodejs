@@ -1,5 +1,4 @@
 var express = require('express');
-var favicon = require('serve-favicon');
 var fs = require('fs');
 var bodyParser = require('body-parser');
 var urlencodedParser = bodyParser.urlencoded({extended: false});
