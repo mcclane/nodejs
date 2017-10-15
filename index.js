@@ -37,7 +37,7 @@ app.post('/submit', function(req, res) {
     console.log('Something received')
     console.log('name: '+req.body.name)
     //now do something and return something
-    fs.appendFile('received.txt', req.body.name+'\n', function(err) {
+    fs.appendFile('orders/received.txt', req.body.name+'\n', function(err) {
         if(err) throw err
         console.log('added to file')
     })
