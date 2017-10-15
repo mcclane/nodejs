@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 //var urlencodedParser = bodyParser.urlencoded({extended: false});
 //var jsonParser = bodyParser.json();
 
-var PORT = 80;
+var PORT = 3000;
 
 //create express instance
 var app = express();
