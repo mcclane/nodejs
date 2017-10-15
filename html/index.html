@@ -1,13 +1,22 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="/css/style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"/>
+        <script>
+            document.getElementById("doSomethingButton").onclick = function() {
+				$.post( "/test", function(data) {
+					console.log(data)
+				}
+			}
+        </script>
 	</head>
 	<body>
-		<div class="main_title">McClane Howland</div>
+		<div class="main_title">Supreme Bot</div>
 		<div class="main_body">
 			<a href="https://github.com/mcclane" target="_blank">GitHub</a>
 			<a href="https://www.instagram.com/mcclanehowland/" target="_blank">Instagram</a> 
 			<a href="https://www.facebook.com/mcclane.howland" target="_blank">Facebook</a>
+            <input id="doSomethingButton" type="button">Button</input> 
 		</div>
 	</body>
 </html>
