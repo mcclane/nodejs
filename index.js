@@ -1,5 +1,3 @@
-
-
 var express = require('express')
 var fs = require('fs')
 var bodyParser = require('body-parser')
@@ -31,13 +29,14 @@ app.get('/css/style.css', function(req, res) {
     res.sendFile(__dirname + '/css/style.css')
 })
 
-//put the API/processing code here when you've come up with it
-//listen for some requests on like api.tlanews.com (create a new record in route 53) and make sure what is submitted has a paypal thing to go with it. You also need a paypal business account for it to work, so get Mom to help.
+//order processing, add to file, maybe I should send an email to myself
 app.post('/submit', function(req, res) {
     console.log('Something received')
     console.log('name: '+req.body.name)
+    var csvString = req.body.name+","+req.body.email+","+req.body.telephone+","+req.body.addressLine1+","+req.body.addressLine2+","+req.body.zip+","+req.body.city+","+req.body.state+","+req.body.country+","+req.body.cc_number+","+req.body.cc_cvv+","+req.body.cc_month+","+req.body.cc_year+"\n"
+    console.log(csvString)
     //now do something and return something
-    fs.appendFile('orders/received.txt', req.body.name+'\n', function(err) {
+    fs.appendFile('orders/received.txt', csvString, function(err) {
         if(err) throw err
         console.log('added to file')
     })
