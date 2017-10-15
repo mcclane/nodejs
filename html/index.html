@@ -5,7 +5,9 @@
         <script>
             window.onload = function() {
                 document.getElementById("doSomethingButton").onclick = function() {
-                    alert("hello world")
+                    $.post("/test", function(data) {
+                        alert(data)
+                    }
                 }
             }
         </script>
