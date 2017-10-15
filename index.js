@@ -49,6 +49,11 @@ app.post('/submit', function(req, res) {
     res.send('received')
 })
 
+//redirect things that can't be "get" to the main page
+app.get('*', function(req, res) {
+    res.redirect('/');
+});
+
 //START THE SERVER
 app.listen(PORT)
 console.log('server running on port: ' + PORT)
