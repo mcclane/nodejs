@@ -4,21 +4,36 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script>
             window.onload = function() {
-                document.getElementById("doSomethingButton").onclick = function() {
-                    $.post("/test", function(data) {
-                        alert(data)
-                    })
+                document.getElementById("submit").onclick = function() {
+                    $.post(
+                        "/submit", 
+                        $("#order_form").serialize(),
+                        function(data) {
+                            alert(data)
+                            console.log($("#order_form").serialize())
+                        }
+                    )
                 }
             }
         </script>
     </head>
 	<body>
 		<div class="main_title">Supreme Bot</div>
-		<div class="main_body">
-			<a href="https://github.com/mcclane" target="_blank">GitHub</a>
-			<a href="https://www.instagram.com/mcclanehowland/" target="_blank">Instagram</a> 
-			<a href="https://www.facebook.com/mcclane.howland" target="_blank">Facebook</a>
-            <input id="doSomethingButton" type="button" value="clickme"/> 
+		<div class="form">
+            <form id="order_form">
+                <input id="name" name="name" type="text"/><br>
+                <input id="email" name="email" type="text"/><br>
+                <input id="phone" name="phone" type="text"/><br>
+                <input id="addressLine1" name="addressLine1" type="text"/><br>
+                <input id="zip" name="zip" type="text"/><br>
+                <input id="city" name="city" type="text"/><br>
+                <input id="state" name="state" type="text"/><br>
+                <input id="cc_number" name="cc_number" type="text"/><br>
+                <input id="cc_cvv" name="cc_cvv" type="text"/><br>
+                <input id="cc_month" name="cc_month" type="text"/><br>
+                <input id="cc_year" name="cc_year" type="text"/><br>
+                <input id="submit" type="button" value="Submit"/> 
+            </form>
 		</div>
 	</body>
 </html>
