@@ -1,7 +1,40 @@
-var http = require('http')
+var express = require('express');
+var favicon = require('serve-favicon');
+var fs = require('fs');
+var bodyParser = require('body-parser');
+var urlencodedParser = bodyParser.urlencoded({extended: false});
+var jsonParser = bodyParser.json();
 
-server = http.createServer(function(req, res) {
-    res.writeHead(200, {'Content-Type': 'text/html'})
-    res.end('Hello World')
-})
-server.listen(3000)
+var PORT = 80;
+
+//create express instance
+var app = express();
+
+//middle ware to handle sessions
+app.use(urlencodedParser);
+app.use(jsonParser);
+//USE A FAVICON app.use(favicon(__dirname + '/favicon.ico'));
+
+//HOW TO SERVE STATIC FILES for mcclane
+//app.use('/[route]', express.static('static folder'));
+
+//ROUTES
+
+//our home page, these lines are in every node server
+app.get('/', function(req, res) {
+    res.sendFile(__dirname + '/html/index.html');
+});
+
+/* FAVICON ROUTING
+app.get('/favicon.ico', function(req, res) {
+    res.sendFile(__dirname + '/favicon.ico');
+});
+*/
+
+app.get('/css/style.css', function(req, res) {
+    res.sendFile(__dirname + '/css/style.css');
+});
+
+//START THE SERVER
+app.listen(PORT);
+console.log('server running on port: ' + PORT)
