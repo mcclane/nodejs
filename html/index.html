@@ -4,9 +4,7 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"/>
         <script>
             document.getElementById("doSomethingButton").onclick = function() {
-				$.post( "http://bot.tlanews.com/test", function(data) {
-					console.log(data)
-				})
+                alert("hello world")
 			}
         </script>
 	</head>
@@ -16,7 +14,7 @@
 			<a href="https://github.com/mcclane" target="_blank">GitHub</a>
 			<a href="https://www.instagram.com/mcclanehowland/" target="_blank">Instagram</a> 
 			<a href="https://www.facebook.com/mcclane.howland" target="_blank">Facebook</a>
-            <input id="doSomethingButton" type="button">Button</input> 
+            <input id="doSomethingButton" type="button" value="clickme"/> 
 		</div>
 	</body>
 </html>
