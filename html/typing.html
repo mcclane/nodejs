@@ -1,0 +1,83 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="/css/TypingStyle.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+
+            var text = "The quick brown fox jumps over the lazy dog who is sleeping"
+
+            var words = text.split(/\s+/)
+            var wordsIndex = 0
+
+            var d = new Date()
+            var startTime = 0
+            var endTime = 0
+            var wordsTyped = 0
+            var WPM = 0
+
+            console.log(words)
+
+            window.onload = function() {
+                var text_box = document.getElementById("text_box")
+                var text_div = document.getElementById("text_div")
+                var stats_div = document.getElementById("stats_div")
+                updateText()
+            }
+            function SomethingHasBeenTyped() {
+                var input = text_box.value
+                if(input.includes(" ")) {
+                    if(currentWord === words[wordsIndex]) {
+                        console.log("correct")
+                        wordsTyped++
+                    }
+                    else {
+                        console.log("incorrect")
+                    }
+                    text_box.value = ""
+                    wordsIndex++
+                    //highlight the next word
+                    text_div.innerHTML = ""
+                    for(var i = 0;i < words.length;i++) {
+                        if(i == wordsIndex) {
+                            text_div.innerHTML = text_div.innerHTML+" <mark>"+words[i]+"</mark"
+                        }
+                        else {
+                            text_div.innerHTML = text_div.innerHTML+" "+words[i]
+                        }
+                    }
+                    //update the stats div with the relevant stats
+                    d = new Date()
+                    endTime = d.getUTCSeconds()
+                    WPM = (wordsTyped/(endTime-startTime))*60
+                    stats_div.innerHTML = "WPM: "+WPM
+                }
+                else {
+                    currentWord = input
+                }
+            }
+            function updateText() {
+                words = document.getElementById("input_text_to_be_typed").value.split(/\s+/)
+                wordsIndex = 0
+                wordsTyped = 0
+                //highlight the current word
+                text_div.innerHTML = "<mark>"+words[0]+"</mark>"
+                for(var i = 1;i < words.length;i++) {
+                    text_div.innerHTML = text_div.innerHTML+" "+words[i]
+                }
+                //do the time things
+                d = new Date()
+                startTime = d.getUTCSeconds()
+                endTime = d.getUTCSeconds()
+            }
+        </script>
+    </head>
+	<body>
+		<div class="main_title">Typing Game</div>
+        <div id="text_div"></div>
+        <div id="stats_div"></div>
+        <input type="text" id="text_box" oninput="SomethingHasBeenTyped()"><br>
+        Add your own text:
+        <textarea id="input_text_to_be_typed" class="input_text_to_be_typed"></textarea><br>
+        <input type="button" onclick="updateText()" value="Start Typing">
+	</body>
+</html>

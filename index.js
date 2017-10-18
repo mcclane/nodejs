@@ -21,14 +21,23 @@ app.use(jsonParser)
 //ROUTES
 
 //REGULAR PAGE SERVING
-//our home page, these lines are in every node server
 app.get('/', function(req, res) {
     res.sendFile(__dirname + '/html/index.html')
 })
-
 app.get('/css/style.css', function(req, res) {
     res.sendFile(__dirname + '/css/style.css')
 })
+app.get('/checkout', function(req, res) {
+    res.sendFile(__dirname + '/html/checkout.html')
+})
+app.get('/typing', function(req, res) {
+    res.sendFile(__dirname + '/html/typing.html')
+})
+app.get('/css/TypingStyle.css', function(req, res) {
+    res.sendFile(__dirname + '/css/TypingStyle.css')
+})
+
+
 
 //order processing, add to file, maybe I should send an email to myself
 app.post('/submit', function(req, res) {
